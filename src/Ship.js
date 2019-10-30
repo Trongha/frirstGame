@@ -18,8 +18,13 @@ var Ship = cc.Sprite.extend({
             //tag: this.zOrder,
 
         })*/
+        this.schedule(this.shoot, 1/5);
 
 
+    },
+
+    update:function(dt){
+        this.updateMove(dt);
     },
 
     updateMove:function(dt){
@@ -35,7 +40,20 @@ var Ship = cc.Sprite.extend({
         if ((MW.KEYS[cc.KEY.d] || MW.KEYS[cc.KEY.right]) && this.x <= windowSize.width) {
             this.x += dt * this.speed;
         }
-    }
+    },
+
+    /*shoot:function(){
+        var bll = Bullet.createOrGetBulletPlayer(res.dan1_1, this.x-27, this.y+9, MW.BULLET_SPEED.SHIP);
+        var blr = Bullet.createOrGetBulletPlayer(res.dan1_1, this.x+27, this.y+9, MW.BULLET_SPEED.SHIP);
+
+    },*/
+    shoot:function(){
+        //cc.log(MW.SHIPCONFIG[MW.SHIPID.PLAYER1].SPEED_BULLET)
+
+        var bll = Bullet.createOrGetBulletPlayer(this.x-27, this.y+9, MW.SHIPID.PLAYER1);
+        var blr = Bullet.createOrGetBulletPlayer(this.x+27, this.y+9, MW.SHIPID.PLAYER1);
+
+    },
 
 
 

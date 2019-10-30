@@ -9,7 +9,8 @@ var res = {
     player1_1 : "res/Player 1-1.png",
     player1_2 : "res/Player 1-2.png",
     dan1_1 : "res/Player 1-dan 1.png",
-    dan2_2 : "res/Player 1-dan 2.png"
+    dan2_1 : "res/Player 2-dan 1.png",
+
 
 };
 
@@ -20,5 +21,5 @@ var g_mainGame = [
     res.player1_1,
     res.player1_2,
     res.dan1_1,
-    res.dan2_2
+    res.dan2_1
 ]
