@@ -5,7 +5,9 @@
  */
 
 windowSize = cc.director.getWinSize();
-var sharedGameLayer;
+
+var sharedGameLayer = null;
+
 var GameLayer = cc.Layer.extend({
 
     MAX_DISTANCE_BULLET :{
@@ -19,8 +21,9 @@ var GameLayer = cc.Layer.extend({
 
     ctor:function(){
         this._super();
-        this.init();
         sharedGameLayer = this;
+        this.init();
+
 
         this.scheduleUpdate();
     },
@@ -58,37 +61,54 @@ var GameLayer = cc.Layer.extend({
         cc.log("width Player", this._ship.width);
     },
     addEnEmy:function(){
-        this._En = new Enemy();
-        this.addChild(this._En);
+        var x, y;
+        for (var i=0 ; i<10 ; i++){
+
+            x = cc.random0To1()*windowSize.width;
+            y = 600+cc.random0To1()*300
+            cc.log('x: ',x );
+            this._En = new Enemy(x, y, MW.SHIPID.ENEMY1);
+        }
+        //this.addChild(this._En);
 
     },
 
     checkCollide:function(){
+
+        var dan = null, ship = null;
+
         var s = "";
         for (var j=0 ; j<MW.CONTAINER.ENEMY_BULLETS.length ; j++){
-
             s+= MW.CONTAINER.ENEMY_BULLETS[j].visible + " ";
         }
         cc.log("bullet arr ", s);
+
         for (var j=0 ; j<MW.CONTAINER.ENEMY_BULLETS.length ; j++){
-            var dan = MW.CONTAINER.ENEMY_BULLETS[j];
+            dan = MW.CONTAINER.ENEMY_BULLETS[j];
             if (dan.visible == true){
-                //cc.log()
-                cc.log(dan.x);
-                if (this.collide(dan, this._En)) {
-                    cc.log("hit");
+                //cc.log(dan.x);
+                if (this.collide(dan, this._ship)) {
+                    //cc.log("hit");
+                    dan.visible = false;
                 }
             }
-
-            /*if (this.collide(dan, this._En)){
-                cc.log("hit");
-            }*/
         }
+        for (var j=0 ; j<MW.CONTAINER.PLAYER_BULLETS.length ; j++){
+            dan = MW.CONTAINER.PLAYER_BULLETS[j];
+            if (dan.visible == true){
+                //cc.log(dan.x);
+                if (this.collide(dan, this._En)) {
+                    //cc.log("hit");
+                    dan.visible = false;
+                }
+            }
+        }
+
     },
 
     collide:function(a,b){
-        cc.log("check");
-        if (Math.abs(a.x - b.x) < this.MAX_DISTANCE_BULLET.WIDTH || Math.abs(a.y - b.y) < this.MAX_DISTANCE_BULLET.HEIGHT){
+        //cc.log("check");
+        if (Math.abs(a.x - b.x) < this.MAX_DISTANCE_BULLET.WIDTH && Math.abs(a.y - b.y) < this.MAX_DISTANCE_BULLET.HEIGHT){
             return true;
         }
     },

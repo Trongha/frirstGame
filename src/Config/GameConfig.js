@@ -9,7 +9,7 @@ var MW = MW || {}; //Neu MW co roi thi dung MW ko thi tao moi
 MW.KEYS = [];
 
 MW.CONTAINER = {
-    ENEMYS:[],
+    ENEMIES:[],
     ENEMY_BULLETS:[],
     PLAYER_BULLETS:[],
     EXPLOSIONS:[],
@@ -40,7 +40,7 @@ MW.SHIPCONFIG = {
     },
     ENEMY1:{
         ISPLAYER:false,
-        IMG: res.player1_2,
+        IMG: res.enemy1,
         IMG_BULLET: res.dan2_1,
         SPEED_BULLET: MW.BULLET_SPEED.ENEMY
     }

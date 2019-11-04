@@ -11,22 +11,22 @@ var Bullet = cc.Sprite.extend({
     ctor:function(_x, _y, shipID){
         this._super();
 
-        bulletConfig = MW.SHIPCONFIG[shipID];
-        this.init(_x, _y, bulletConfig.SPEED_BULLET);
+        this.bulletConfig = MW.SHIPCONFIG[shipID];
+        this.init(_x, _y);
 
         this.scheduleUpdate();
     },
-    init: function (_x, _y, speed) {
-        this.setTexture(bulletConfig.IMG_BULLET);
+    init: function (_x, _y) {
+        this.setTexture(this.bulletConfig.IMG_BULLET);
         this.anchorX= 0.5;
         this.anchorY= 0;
-        this.yVelocity = speed;
+        this.yVelocity = this.bulletConfig.SPEED_BULLET;
         this.x = _x;
         this.y = _y;
 
         sharedGameLayer.addChild(this);
 
-        if (bulletConfig.ISPLAYER){
+        if (this.bulletConfig.ISPLAYER){
             MW.CONTAINER.PLAYER_BULLETS.push(this);
         }else{
             MW.CONTAINER.ENEMY_BULLETS.push(this);
