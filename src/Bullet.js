@@ -52,8 +52,8 @@ var Bullet = cc.Sprite.extend({
 
 }*/
 Bullet.createOrGetBulletPlayer = function(_x, _y, shipID){
-
-    /*var s = "";
+/*
+    var s = "";
     for (var j=0 ; j<MW.CONTAINER.ENEMY_BULLETS.length ; j++){
 
         s+= MW.CONTAINER.ENEMY_BULLETS[j].visible + " ";

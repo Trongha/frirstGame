@@ -28,11 +28,13 @@ var GameLayer = cc.Layer.extend({
         this.scheduleUpdate();
     },
     init:function(){
+        MW.CONTAINER.ENEMIES = [];
+        MW.CONTAINER.PLAYER_BULLETS = [];
         this.addBackground();
         this.addShip();
         this.addKeyboardListener();
         this.addTouchListener();
-        this.addEnEmy();
+        this.addEnemy();
     },
     addBackground:function(){
         backgroundImg = new cc.Sprite(res.map_green);
@@ -60,14 +62,20 @@ var GameLayer = cc.Layer.extend({
         cc.log("height Player", this._ship.height);
         cc.log("width Player", this._ship.width);
     },
-    addEnEmy:function(){
-        var x, y;
+
+    addEnemy:function(){
+        var x, y = windowSize.height;
+
+        var ID = "ENEMY", num = null;
+
         for (var i=0 ; i<10 ; i++){
 
             x = cc.random0To1()*windowSize.width;
-            y = 600+cc.random0To1()*300
-            cc.log('x: ',x );
-            this._En = new Enemy(x, y, MW.SHIPID.ENEMY1);
+            num = Math.round(cc.random0To1()*100) % 4;
+
+            cc.log('ID', ID + num);
+
+            _en = new Enemy(x, y, MW.SHIPID[ID + num]);
         }
         //this.addChild(this._En);
 
@@ -77,11 +85,38 @@ var GameLayer = cc.Layer.extend({
 
         var dan = null, ship = null;
 
-        var s = "";
-        for (var j=0 ; j<MW.CONTAINER.ENEMY_BULLETS.length ; j++){
-            s+= MW.CONTAINER.ENEMY_BULLETS[j].visible + " ";
+        /*var s = "";
+        for (var j=0 ; j<MW.CONTAINER.PLAYER_BULLETS.length ; j++){
+            s+= MW.CONTAINER.PLAYER_BULLETS[j].visible + " ";
         }
-        cc.log("bullet arr ", s);
+        cc.log("bullet arr ", s);*/
+
+       /* var s = '', s1 = '';
+
+        for (var i=0 ; i < MW.CONTAINER.ENEMIES.length ; i++){
+            s += MW.CONTAINER.ENEMIES[i].visible + " ";
+            s1 += MW.CONTAINER.ENEMIES[i].enemyConfig.HP + "    ";
+        }
+        cc.log(s);
+        //cc.log(s1);*/
+
+        for (var j=0 ; j<MW.CONTAINER.ENEMIES.length ; j++){
+            enemy = MW.CONTAINER.ENEMIES[j];
+
+            if (enemy.visible == true){
+                for (var i = 0; i < MW.CONTAINER.PLAYER_BULLETS.length; i++) {
+                    dan = MW.CONTAINER.PLAYER_BULLETS[i];
+
+                    if (dan.visible == true) {
+                        if (this.collide(dan, enemy)) {
+                            dan.visible = false;
+                            enemy.hurt();
+                        }
+                    }
+                }
+            }
+
+        }
 
         for (var j=0 ; j<MW.CONTAINER.ENEMY_BULLETS.length ; j++){
             dan = MW.CONTAINER.ENEMY_BULLETS[j];
@@ -93,21 +128,11 @@ var GameLayer = cc.Layer.extend({
                 }
             }
         }
-        for (var j=0 ; j<MW.CONTAINER.PLAYER_BULLETS.length ; j++){
-            dan = MW.CONTAINER.PLAYER_BULLETS[j];
-            if (dan.visible == true){
-                //cc.log(dan.x);
-                if (this.collide(dan, this._En)) {
-                    //cc.log("hit");
-                    dan.visible = false;
-                }
-            }
-        }
+
 
     },
 
     collide:function(a,b){
-        //cc.log("check");
         if (Math.abs(a.x - b.x) < this.MAX_DISTANCE_BULLET.WIDTH && Math.abs(a.y - b.y) < this.MAX_DISTANCE_BULLET.HEIGHT){
             return true;
         }
