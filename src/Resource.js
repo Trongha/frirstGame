@@ -4,6 +4,7 @@
 
 var res = {
     map_green : "res/MAP/Green/bg-green.png",
+    map_river: "res/MAP/Green/ex-bg-green.png",
     enemy1 : "res/enemy - A1.png",
     enemy2 : "res/enemy - A2.png",
     player1_1 : "res/Player 1-1.png",

@@ -6,6 +6,16 @@
 
 windowSize = cc.director.getWinSize();
 
+bcgConfig = {
+    height:960,
+    width:640
+};
+
+var scoreLabel = null;
+
+
+//this.addChild(lblDemo);
+
 var sharedGameLayer = null;
 
 var GameLayer = cc.Layer.extend({
@@ -15,42 +25,40 @@ var GameLayer = cc.Layer.extend({
         HEIGHT: 66
     },
     MAX_DISTANCE_SHIP :{
-        WIDTH: 127,
-        HEIGHT: 122
+        WIDTH: 120,
+        HEIGHT: 115
     },
+    MAX_DISTANCE_BUL_BUL :{
+        WIDTH: 15,
+        HEIGHT: 15
+    },
+
 
     ctor:function(){
         this._super();
         sharedGameLayer = this;
+        MW.SCORE = 0;
         this.init();
-
-
         this.scheduleUpdate();
+        this.schedule(this.addEnemy, 2);
     },
     init:function(){
         MW.CONTAINER.ENEMIES = [];
         MW.CONTAINER.PLAYER_BULLETS = [];
-        this.addBackground();
+
+        Background.initGameBackground(res.map_green);
+
         this.addShip();
         this.addKeyboardListener();
         this.addTouchListener();
         this.addEnemy();
-    },
-    addBackground:function(){
-        backgroundImg = new cc.Sprite(res.map_green);
-
-        backgroundImg.attr({
-            anchorX : 0.5,
-            anchorY : 0.5,
-            x: windowSize.width/2,
-            y: windowSize.height/2
-        })
-
-        this.addChild(backgroundImg);
+        this.addScore();
+        this.addHPShip();
     },
 
     update:function(){
         this.checkCollide();
+        //this.scrollBackground();
     },
 
     addShip:function(){
@@ -66,24 +74,42 @@ var GameLayer = cc.Layer.extend({
     addEnemy:function(){
         var x, y = windowSize.height;
 
-        var ID = "ENEMY", num = null;
+        var enemyTypeID = Math.round(cc.random0To1()*100) % 4;
 
-        for (var i=0 ; i<10 ; i++){
-
+        for (var i=0 ; i<5 ; i++){
             x = cc.random0To1()*windowSize.width;
-            num = Math.round(cc.random0To1()*100) % 4;
 
-            cc.log('ID', ID + num);
-
-            _en = new Enemy(x, y, MW.SHIPID[ID + num]);
+            _en = new Enemy(x, y, MW.SHIPID["ENEMY" + enemyTypeID]);
         }
         //this.addChild(this._En);
 
     },
 
+    addScore:function(){
+        this.scoreLabel = new cc.LabelTTF("Your Score:" + MW.SCORE,"Arial Bold",24);
+        this.scoreLabel.x =this.scoreLabel.width/2 + 10;
+        this.scoreLabel.y =windowSize.height - this.scoreLabel.height - 10;
+        this.addChild(this.scoreLabel,10);
+    },
+
+    updateScore:function(){
+        this.scoreLabel.setString("Your Score: " + MW.SCORE);
+    },
+
+    addHPShip:function(){
+        this.heartLabel = new cc.LabelTTF(this._ship.HP + " Heart","Arial Bold",24);
+        this.heartLabel.x = windowSize.width - this.heartLabel.width - 10;
+        this.heartLabel.y = windowSize.height - this.heartLabel.height - 10;
+        this.addChild(this.heartLabel,10);
+    },
+
+    updateHP:function(){
+        this.heartLabel.setString(this._ship.HP + " Heart");
+    },
+
     checkCollide:function(){
 
-        var dan = null, ship = null;
+        var dan = null, ship = null, dan2 = null;
 
         /*var s = "";
         for (var j=0 ; j<MW.CONTAINER.PLAYER_BULLETS.length ; j++){
@@ -102,12 +128,17 @@ var GameLayer = cc.Layer.extend({
 
         for (var j=0 ; j<MW.CONTAINER.ENEMIES.length ; j++){
             enemy = MW.CONTAINER.ENEMIES[j];
+            if (enemy.visible){
+                if (this.collideShipEnemy(enemy, this._ship)){
+                    this._ship.hurt();
 
-            if (enemy.visible == true){
+                    enemy.destroy();
+                }
+
                 for (var i = 0; i < MW.CONTAINER.PLAYER_BULLETS.length; i++) {
                     dan = MW.CONTAINER.PLAYER_BULLETS[i];
 
-                    if (dan.visible == true) {
+                    if (dan.visible) {
                         if (this.collide(dan, enemy)) {
                             dan.visible = false;
                             enemy.hurt();
@@ -115,16 +146,23 @@ var GameLayer = cc.Layer.extend({
                     }
                 }
             }
-
         }
 
         for (var j=0 ; j<MW.CONTAINER.ENEMY_BULLETS.length ; j++){
             dan = MW.CONTAINER.ENEMY_BULLETS[j];
-            if (dan.visible == true){
-                //cc.log(dan.x);
+            if (dan.visible){
                 if (this.collide(dan, this._ship)) {
-                    //cc.log("hit");
                     dan.visible = false;
+                    this._ship.hurt();
+                }
+            }
+            for (var i=0 ; i<MW.CONTAINER.PLAYER_BULLETS.length ; i++){
+                dan2 = MW.CONTAINER.PLAYER_BULLETS[i];
+                if (dan2.visible){
+                    if (this.collideBuletBulet(dan, dan2)){
+                        dan.visible = false;
+                        dan2.visible = false;
+                    }
                 }
             }
         }
@@ -137,6 +175,17 @@ var GameLayer = cc.Layer.extend({
             return true;
         }
     },
+    collideShipEnemy:function(a,b){
+        if (Math.abs(a.x - b.x) < this.MAX_DISTANCE_SHIP.WIDTH && Math.abs(a.y - b.y) < this.MAX_DISTANCE_SHIP.HEIGHT){
+            return true;
+        }
+    },
+    collideBuletBulet:function(a,b){
+        if (Math.abs(a.x - b.x) < this.MAX_DISTANCE_BUL_BUL.WIDTH && Math.abs(a.y - b.y) < this.MAX_DISTANCE_BUL_BUL.HEIGHT){
+            return true;
+        }
+    },
+
     addTouchListener:function(){
         //Add code here
         var self = this;
@@ -145,8 +194,15 @@ var GameLayer = cc.Layer.extend({
             onTouchesMoved: function (touches, event) {
                 //cc.log("touch moved!", touches[0].getDelta().x, touches[0].getDelta().y);
                 var moved = touches[0].getDelta();
-                self._ship.x += moved.x;
-                self._ship.y += moved.y;
+                xNew = self._ship.x + moved.x;
+                yNew = self._ship.y + moved.y;
+
+                if (xNew >=0 && xNew <= windowSize.width){
+                    self._ship.x += moved.x;
+                }
+                if (yNew >=0){
+                    self._ship.y += moved.y;
+                }
             }
         }, this);
     },

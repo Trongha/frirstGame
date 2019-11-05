@@ -14,20 +14,24 @@ var Ship = cc.Sprite.extend({
         this.anchorY= 0;
         this.x= windowSize.width/2;
         this.y= 0;
-        /*this.attr({
-            //tag: this.zOrder,
 
-        })*/
-        this.schedule(this.shoot, 1/5);
+        this.HP = MW.SHIPCONFIG.PLAYER1.HP;
+
+        this.schedule(this.shoot, 1/7);
 
 
     },
 
     update:function(dt){
         this.updateMove(dt);
+
+        if (this.HP <0 ){
+            this.destroy();
+        }
     },
 
     updateMove:function(dt){
+
         if ((MW.KEYS[cc.KEY.w] || MW.KEYS[cc.KEY.up]) && this.y <= windowSize.height){
             this.y += dt * this.speed;
         }
@@ -42,13 +46,31 @@ var Ship = cc.Sprite.extend({
         }
     },
 
-    /*shoot:function(){
-        var bll = Bullet.createOrGetBulletPlayer(res.dan1_1, this.x-27, this.y+9, MW.BULLET_SPEED.SHIP);
-        var blr = Bullet.createOrGetBulletPlayer(res.dan1_1, this.x+27, this.y+9, MW.BULLET_SPEED.SHIP);
+    hurt:function(){
+        this.HP--;
+        sharedGameLayer.updateHP();
 
-    },*/
+        //cc.log("   hurt " + this.HP)
+    },
+
+    destroy:function(){
+
+        this.unschedule(this.shoot);
+
+        //a1 = cc.delayTime(0.5);
+        this.opacity = 190;
+        a2 = cc.moveBy(10, cc.p(0, -60));
+        /*this.setOpacityModifyRGB(true);
+        a2 = cc.FadeOut.create(10);*/
+        this.runAction(a2);
+
+        /*this.stopAllActions();
+        this.visible = false;
+        this.parent.removeChild(this);*/
+
+    },
+
     shoot:function(){
-        //cc.log(MW.SHIPCONFIG[MW.SHIPID.PLAYER1].SPEED_BULLET)
 
         var bll = Bullet.createOrGetBulletPlayer(this.x-27, this.y+9, MW.SHIPID.PLAYER1);
         var blr = Bullet.createOrGetBulletPlayer(this.x+27, this.y+9, MW.SHIPID.PLAYER1);

@@ -6,15 +6,28 @@ var Enemy = cc.Sprite.extend({
 
     speed: 220,
 
-    enemyConfig:null,
 
     ctor:function(_x, _y, enemyID){
         this._super();
-        this.enemyConfig = MW.SHIPCONFIG[enemyID];
+        //this.enemyConfig = MW.SHIPCONFIG[enemyID];
+        this.enemyConfig = {
+            ISPLAYER:MW.SHIPCONFIG[enemyID].ISPLAYER,
+            IMG: MW.SHIPCONFIG[enemyID].IMG,
+            IMG_BULLET: MW.SHIPCONFIG[enemyID].IMG_BULLET,
+            SPEED_BULLET: MW.SHIPCONFIG[enemyID].SPEED_BULLET,
+            ATTACK_MODE: MW.SHIPCONFIG[enemyID].ATTACK_MODE,
+            SHOOT_DELAY: MW.SHIPCONFIG[enemyID].SHOOT_DELAY,
+            MOVE_TYPE: MW.SHIPCONFIG[enemyID].MOVE_TYPE,
+            HP:MW.SHIPCONFIG[enemyID].HP,
+            SCORE:MW.SHIPCONFIG[enemyID].SCORE
+
+        }
 
         this.initAndAddChild(_x, _y);
         this.move();
-        this.schedule(this.shoot, 1/2);
+        if (this.enemyConfig.ATTACK_MODE != 0){
+            this.schedule(this.shoot, this.enemyConfig.SHOOT_DELAY);
+        }
         this.scheduleUpdate();
     },
 
@@ -30,13 +43,11 @@ var Enemy = cc.Sprite.extend({
         sharedGameLayer.addChild(this);
         MW.CONTAINER.ENEMIES.push(this);
 
-        var s = '';
-
+        /*var s = '';
         for (var i=0 ; i < MW.CONTAINER.ENEMIES.length ; i++){
             s += MW.CONTAINER.ENEMIES[i].visible + " ";
-        }
-
-        cc.log(s);
+        }Z
+        cc.log(s);*/
     },
 
     update:function(){
@@ -45,13 +56,13 @@ var Enemy = cc.Sprite.extend({
             this.visible = false;
         }
 
-        if (this.enemyConfig.HP <= 0) {
+        if (this.visible && this.enemyConfig.HP <= 0) {
             this.destroy();
         }
     },
 
     move:function(){
-        var delay  = (cc.delayTime(0.5));
+        var delay  = (cc.delayTime(0));
 
         var offset, myAction = null;
         var myRand1 = 2 + cc.random0To1()*10;
@@ -80,7 +91,7 @@ var Enemy = cc.Sprite.extend({
                 myAction = cc.sequence(a0, a1, onComplete);
                 break;
 
-            case MW.ENEMY_MOVE_TYPE.OVERLAP:
+            case MW.ENEMY_MOVE_TYPE.ZICZAC:
                 //Add code here
                 offset = cc.p(0, 0);
                 p1 = cc.p(windowSize.width - myRand1, windowSize.height/2 + myRand2);
@@ -106,15 +117,19 @@ var Enemy = cc.Sprite.extend({
     },
 
     destroy:function () {
-        //MW.SCORE += this.scoreValue;
-        //Explosion.getOrCreateExplosion(this.x, this.y);
-        //SparkEffect.getOrCreateSparkEffect(this.x, this.y);
+
+        if (this.visible){
+            MW.SCORE += this.enemyConfig.SCORE;
+            sharedGameLayer.updateScore();
+        }
 
         this.visible = false;
 
         this.stopAllActions();
         this.unschedule(this.shoot);
 
+
+        cc.log("score: " + MW.SCORE);
 
     },
 
@@ -123,8 +138,8 @@ var Enemy = cc.Sprite.extend({
     },
 
     shoot:function(){
-        var bll = Bullet.createOrGetBulletPlayer(this.x-45, this.y-30, MW.SHIPID.ENEMY1);
-        var blr = Bullet.createOrGetBulletPlayer(this.x+45, this.y-30, MW.SHIPID.ENEMY1);
+        var bl = Bullet.createOrGetBulletPlayer(this.x, this.y-30, MW.SHIPID.ENEMY1);
+        //var blr = Bullet.createOrGetBulletPlayer(this.x+45, this.y-30, MW.SHIPID.ENEMY1);
 
     },
 
