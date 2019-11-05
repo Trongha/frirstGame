@@ -83,8 +83,6 @@
 })*/
 cc.game.onStart = function(){
 
-
-
     cc.view.enableRetina(false);
     cc.view.adjustViewPort(true);
     cc.view.setDesignResolutionSize(640,960,cc.ResolutionPolicy.SHOW_ALL);
@@ -111,8 +109,10 @@ cc.game.onStart = function(){
         var sc = new cc.Scene();
 
         var gameLayer = new GameLayer();
-
         sc.addChild(gameLayer);
+
+       /* var gameOver = new GameOver();
+        sc.addChild(gameOver);*/
         //cc.log(windowSize.height, windowSize.width)
 
         cc.director.runScene(sc);

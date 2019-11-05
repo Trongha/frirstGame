@@ -226,4 +226,24 @@ var GameLayer = cc.Layer.extend({
         }, this)
 
     },
+
+    onGameOver:function(){
+        //a1 = cc.delayTime(1);
+        //cc.runAction(a1);
+        //cc.sys.localStorage.setItem("score", JSON.stringify([]));
+        var score = cc.sys.localStorage.getItem('score');
+        if (score != null){
+            MW.CONTAINER.RANK = JSON.parse(score);
+        }
+
+        MW.CONTAINER.RANK.push(MW.SCORE);
+
+        cc.sys.localStorage.setItem("score", JSON.stringify(MW.CONTAINER.RANK));
+
+        //this.parent.addChild(new GameOver());
+
+        var scene = new cc.Scene();
+        scene.addChild(new GameOver());
+        cc.director.runScene(new cc.TransitionFade(1.2, scene));
+    },
 })

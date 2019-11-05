@@ -3,6 +3,7 @@
  */
 
 var res = {
+    screen_blue: "res/Screen/bg-blue.png",
     map_green : "res/MAP/Green/bg-green.png",
     map_river: "res/MAP/Green/ex-bg-green.png",
     enemy1 : "res/enemy - A1.png",
@@ -16,6 +17,7 @@ var res = {
 };
 
 var g_mainGame = [
+    res.screen_blue,
     res.map_green,
     res.enemy1,
     res.enemy2,

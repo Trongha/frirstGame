@@ -31,26 +31,28 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4122276">
+    <splitter split-orientation="horizontal" split-proportion="0.57082325">
       <split-first>
         <leaf>
           <file leaf-file-name="GameLayer.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/GameLayer.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="94" column="26" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
+                  <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
                   <folding>
                     <element signature="e#2#44#0" expanded="false" />
                     <element signature="e#98#131#0" expanded="false" />
                     <element signature="e#275#322#0" expanded="false" />
                     <element signature="e#347#394#0" expanded="false" />
                     <element signature="e#422#467#0" expanded="false" />
-                    <element signature="e#1021#1092#0" expanded="false" />
+                    <element signature="e#490#667#0" expanded="false" />
+                    <element signature="e#688#997#0" expanded="false" />
                     <element signature="e#1117#1333#0" expanded="false" />
                     <element signature="e#1359#1670#0" expanded="false" />
                     <element signature="e#1696#1964#0" expanded="false" />
                     <element signature="e#1993#2062#0" expanded="false" />
                     <element signature="e#2089#2376#0" expanded="false" />
+                    <element signature="e#2500#4432#0" expanded="false" />
                     <element signature="e#2562#2751#0" expanded="false" />
                     <element signature="e#2760#3023#0" expanded="false" />
                     <element signature="e#3084#3735#0" expanded="false" />
@@ -68,9 +70,12 @@
           <file leaf-file-name="GameOver.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/GameOver.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3887195">
-                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-                  <folding />
+                <state vertical-scroll-proportion="0.23323171">
+                  <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+                  <folding>
+                    <element signature="e#0#50#0" expanded="false" />
+                    <element signature="e#297#495#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -89,27 +94,25 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Ship.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Ship.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Ship.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.025914634">
+                  <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
                   <folding>
                     <element signature="e#0#42#0" expanded="false" />
                     <element signature="e#112#485#0" expanded="false" />
-                    <element signature="e#642#1171#0" expanded="false" />
-                    <element signature="e#1193#1295#0" expanded="false" />
-                    <element signature="e#1707#1896#0" expanded="false" />
+                    <element signature="e#644#1173#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Resource.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Resource.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Resource.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.051829267">
-                  <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
                   <folding>
                     <element signature="e#0#42#0" expanded="false" />
                   </folding>
@@ -117,18 +120,34 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Enemy.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Enemy.js">
+          <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/main.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+                  <caret line="113" column="9" selection-start-line="113" selection-start-column="7" selection-end-line="114" selection-end-column="32" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GameManager.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/GameManager.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
                   <folding>
-                    <element signature="e#0#42#0" expanded="false" />
-                    <element signature="e#997#1431#0" expanded="false" />
-                    <element signature="e#1455#1705#0" expanded="false" />
-                    <element signature="e#1727#3515#0" expanded="false" />
-                    <element signature="e#3841#3879#0" expanded="false" />
+                    <element signature="e#0#50#0" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Background.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Background.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -137,7 +156,7 @@
             <entry file="file://$PROJECT_DIR$/src/Config/GameConfig.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="87" column="22" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
+                  <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
                   <folding>
                     <element signature="e#0#42#0" expanded="false" />
                   </folding>
@@ -148,8 +167,8 @@
           <file leaf-file-name="project.json" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/project.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.09434">
-                  <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+                <state vertical-scroll-proportion="-6.4150944">
+                  <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -180,7 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/game/render/avatar/BaseAvatar.js" />
         <option value="$PROJECT_DIR$/src/framework/social/ZingMe.js" />
         <option value="$PROJECT_DIR$/src/framework/UserData.js" />
         <option value="$PROJECT_DIR$/src/gui/screen/Login/LayerTrying.js" />
@@ -219,16 +237,17 @@
         <option value="$PROJECT_DIR$/src/SysMenu.js" />
         <option value="$PROJECT_DIR$/src/Menu.js" />
         <option value="$PROJECT_DIR$/src/gameLayer.js" />
-        <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/src/bullet.js" />
         <option value="$PROJECT_DIR$/src/Bullet.js" />
-        <option value="$PROJECT_DIR$/src/Resource.js" />
         <option value="$PROJECT_DIR$/src/Background.js" />
-        <option value="$PROJECT_DIR$/src/Config/GameConfig.js" />
         <option value="$PROJECT_DIR$/src/Enemy.js" />
-        <option value="$PROJECT_DIR$/src/GameLayer.js" />
         <option value="$PROJECT_DIR$/src/gameOver.js" />
+        <option value="$PROJECT_DIR$/src/Resource.js" />
         <option value="$PROJECT_DIR$/project.json" />
+        <option value="$PROJECT_DIR$/src/GameManager.js" />
+        <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/src/Config/GameConfig.js" />
+        <option value="$PROJECT_DIR$/src/GameLayer.js" />
         <option value="$PROJECT_DIR$/src/Ship.js" />
         <option value="$PROJECT_DIR$/src/GameOver.js" />
       </list>
@@ -314,6 +333,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DemoGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frirstGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -773,12 +810,12 @@
       <workItem from="1572944276409" duration="3000" />
       <workItem from="1572944294583" duration="75000" />
       <workItem from="1572944461378" duration="187000" />
-      <workItem from="1572944754342" duration="6157000" />
+      <workItem from="1572944754342" duration="10114000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1697262000" />
+    <option name="totallyTimeSpent" value="1701219000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -884,11 +921,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/Player 1-3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/Player 1-dan 4.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -993,32 +1025,12 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/Screen/bg-blue 2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Screen/bg-blue.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/Screen/button 1-2.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/Screen/button 2-1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Screen/button 2-2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Screen/ex-screen.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -1090,21 +1102,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Background.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8780488">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/Player 1-dan 1.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1151,21 +1148,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Config/GameConfig.js">
+    <entry file="file://$PROJECT_DIR$/res/Screen/bg-blue 2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/Screen/bg-blue.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/Screen/button 2-2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/Screen/ex-screen.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Background.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="87" column="22" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
+          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.09434">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        <state vertical-scroll-proportion="-6.4150944">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#50#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="113" column="9" selection-start-line="113" selection-start-column="7" selection-end-line="114" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resource.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1177,16 +1220,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ship.js">
+    <entry file="file://$PROJECT_DIR$/src/Config/GameConfig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ship.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.025914634">
+          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
             <element signature="e#112#485#0" expanded="false" />
-            <element signature="e#642#1171#0" expanded="false" />
-            <element signature="e#1193#1295#0" expanded="false" />
-            <element signature="e#1707#1896#0" expanded="false" />
+            <element signature="e#644#1173#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1194,19 +1245,21 @@
     <entry file="file://$PROJECT_DIR$/src/GameLayer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="94" column="26" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
           <folding>
             <element signature="e#2#44#0" expanded="false" />
             <element signature="e#98#131#0" expanded="false" />
             <element signature="e#275#322#0" expanded="false" />
             <element signature="e#347#394#0" expanded="false" />
             <element signature="e#422#467#0" expanded="false" />
-            <element signature="e#1021#1092#0" expanded="false" />
+            <element signature="e#490#667#0" expanded="false" />
+            <element signature="e#688#997#0" expanded="false" />
             <element signature="e#1117#1333#0" expanded="false" />
             <element signature="e#1359#1670#0" expanded="false" />
             <element signature="e#1696#1964#0" expanded="false" />
             <element signature="e#1993#2062#0" expanded="false" />
             <element signature="e#2089#2376#0" expanded="false" />
+            <element signature="e#2500#4432#0" expanded="false" />
             <element signature="e#2562#2751#0" expanded="false" />
             <element signature="e#2760#3023#0" expanded="false" />
             <element signature="e#3084#3735#0" expanded="false" />
@@ -1220,21 +1273,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Resource.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.051829267">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameOver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3887195">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.23323171">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#50#0" expanded="false" />
+            <element signature="e#297#495#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

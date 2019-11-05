@@ -15,7 +15,7 @@ MW.CONTAINER = {
     ENEMY_BULLETS:[],
     PLAYER_BULLETS:[],
     EXPLOSIONS:[],
-
+    RANK:[],
     BACKGROUND:[]
 };
 
