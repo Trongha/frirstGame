@@ -108,11 +108,11 @@ cc.game.onStart = function(){
     cc.LoaderScene.preload(g_mainGame, function () {
         var sc = new cc.Scene();
 
-        var gameLayer = new GameLayer();
-        sc.addChild(gameLayer);
+        /*var gameLayer = new GameLayer();
+        sc.addChild(gameLayer);*/
 
-       /* var gameOver = new GameOver();
-        sc.addChild(gameOver);*/
+        var gameOver = new GameOver();
+        sc.addChild(gameOver);
         //cc.log(windowSize.height, windowSize.width)
 
         cc.director.runScene(sc);

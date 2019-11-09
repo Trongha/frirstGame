@@ -18,7 +18,6 @@ var Background = cc.Sprite.extend({
         //this.tag = 3000;
         this.scheduleUpdate();
 
-        cc.log(this.getContentSize().height);
     },
     update:function(dt){
         this.y += this.speed*dt;

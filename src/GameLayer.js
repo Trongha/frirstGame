@@ -37,11 +37,25 @@ var GameLayer = cc.Layer.extend({
     ctor:function(){
         this._super();
         sharedGameLayer = this;
-        MW.SCORE = 0;
+
+        this.clear();
+
         this.init();
         this.scheduleUpdate();
         this.schedule(this.addEnemy, 2);
     },
+
+    clear:function(){
+        MW.SCORE = 0;
+
+        cc.log("arr length: ");
+        for (var key in MW.CONTAINER){
+            MW.CONTAINER[key] = [];
+
+            cc.log(MW.CONTAINER[key].length);
+        }
+    },
+
     init:function(){
         MW.CONTAINER.ENEMIES = [];
         MW.CONTAINER.PLAYER_BULLETS = [];
@@ -67,8 +81,6 @@ var GameLayer = cc.Layer.extend({
         this.addChild(this._ship);
         this._ship.scheduleUpdate();
 
-        cc.log("height Player", this._ship.height);
-        cc.log("width Player", this._ship.width);
     },
 
     addEnemy:function(){
@@ -231,14 +243,25 @@ var GameLayer = cc.Layer.extend({
         //a1 = cc.delayTime(1);
         //cc.runAction(a1);
         //cc.sys.localStorage.setItem("score", JSON.stringify([]));
-        var score = cc.sys.localStorage.getItem('score');
-        if (score != null){
-            MW.CONTAINER.RANK = JSON.parse(score);
+
+        var newScore = MW.SCORE;
+
+        var scores = cc.sys.localStorage.getItem(MW.KEY_SAVE_SCORES);
+        cc.log("run" + scores);
+        if (scores != null){
+            scores = JSON.parse(scores);
         }
+        var i=scores.length;
+        for ( ; scores[i-1] < newScore ; ){
+            scores[i] = scores[--i];
+        }
+        scores[i] = newScore;
+        cc.log(scores);
 
-        MW.CONTAINER.RANK.push(MW.SCORE);
+        //Đang lỗi chỗ get điểm, sắp xếp kiểu gì mà bị mất con cuối?
 
-        cc.sys.localStorage.setItem("score", JSON.stringify(MW.CONTAINER.RANK));
+        //for (var i= ; )
+        cc.sys.localStorage.setItem(MW.KEY_SAVE_SCORES, JSON.stringify(scores.slice(0, 4)));
 
         //this.parent.addChild(new GameOver());
 

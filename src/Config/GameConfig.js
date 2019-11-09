@@ -8,6 +8,8 @@ var MW = MW || {}; //Neu MW co roi thi dung MW ko thi tao moi
 
 MW.KEYS = [];
 
+MW.KEY_SAVE_SCORES = "score1";
+
 MW.SCORE = 0;
 
 MW.CONTAINER = {

@@ -127,10 +127,7 @@ var Enemy = cc.Sprite.extend({
 
         this.stopAllActions();
         this.unschedule(this.shoot);
-
-
-        cc.log("score: " + MW.SCORE);
-
+        //cc.log("score: " + MW.SCORE);
     },
 
     hurt:function(){
