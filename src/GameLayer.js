@@ -48,11 +48,8 @@ var GameLayer = cc.Layer.extend({
     clear:function(){
         MW.SCORE = 0;
 
-        cc.log("arr length: ");
         for (var key in MW.CONTAINER){
             MW.CONTAINER[key] = [];
-
-            cc.log(MW.CONTAINER[key].length);
         }
     },
 
@@ -239,13 +236,19 @@ var GameLayer = cc.Layer.extend({
 
     },
 
+
     onGameOver:function(){
-        //a1 = cc.delayTime(1);
-        //cc.runAction(a1);
-        //cc.sys.localStorage.setItem("score", JSON.stringify([]));
 
+        this.unscheduleUpdate();
+
+        //this.parent.addChild(new GameOver());
+        this.getAndSyncScores();
+        var scene = new cc.Scene();
+        scene.addChild(new MainScreen(isNewGame = false));
+        cc.director.runScene(new cc.TransitionFade(1.2, scene));
+    },
+    getAndSyncScores:function(){
         var newScore = MW.SCORE;
-
         var scores = cc.sys.localStorage.getItem(MW.KEY_SAVE_SCORES);
         cc.log("run" + scores);
         if (scores != null){
@@ -261,12 +264,8 @@ var GameLayer = cc.Layer.extend({
         //Đang lỗi chỗ get điểm, sắp xếp kiểu gì mà bị mất con cuối?
 
         //for (var i= ; )
-        cc.sys.localStorage.setItem(MW.KEY_SAVE_SCORES, JSON.stringify(scores.slice(0, 4)));
 
-        //this.parent.addChild(new GameOver());
-
-        var scene = new cc.Scene();
-        scene.addChild(new GameOver());
-        cc.director.runScene(new cc.TransitionFade(1.2, scene));
-    },
+        MW.CONTAINER.SCORES = scores.slice(0,4);
+        cc.sys.localStorage.setItem(MW.KEY_SAVE_SCORES, JSON.stringify(MW.CONTAINER.SCORES));
+    }
 })

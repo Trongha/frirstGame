@@ -2,29 +2,38 @@
  * Created by CPU60135_LOCAL on 11/5/2019.
  */
 
-var GameOver = cc.Layer.extend({
-    ctor:function(){
+var MainScreen = cc.Layer.extend({
+    ctor:function(isNewGame){
         this._super();
         this.setBackground();
+        this.addButtonPlay(isNewGame);
+        this.showScores(isNewGame);
 
-        //playAgainBtn = cc.Sprite(res.playAgain);
-        var label = new cc.LabelTTF("Play Again", "Arial", 24);
+    },
+
+    addButtonPlay:function(isNewGame){
+        var labelString = "Play Again";
+
+        if (isNewGame){
+            labelString = "New Game";
+        }
+
+        var label = new cc.LabelTTF(labelString, "Arial", 40);
+
         var menuItem = new cc.MenuItemLabel(label, this.onPlayAgains, this);
 
         var menu = new cc.Menu(menuItem);
 
         menu.attr({
-            x: 300,
-            y: 300
+            anchorX : 0.5,
+            x: windowSize.width/2,
+            y: windowSize.height/3*2
         });
 
         this.addChild(menu);
+    },
 
-        cc.log(MW.CONTAINER.RANK);
-        for (score in MW.CONTAINER.RANK){
-
-        }
-
+    showScores:function(){
     },
 
     onPlayAgains:function(sender){

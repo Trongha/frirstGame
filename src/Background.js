@@ -25,9 +25,7 @@ var Background = cc.Sprite.extend({
         if (this.y <= -this.getContentSize().height){
             this.y += 2 *this.getContentSize().height;
         }
-
     },
-
 })
 Background.initGameBackground = function(img_path){
     var bcg;

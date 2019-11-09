@@ -17,8 +17,8 @@ MW.CONTAINER = {
     ENEMY_BULLETS:[],
     PLAYER_BULLETS:[],
     EXPLOSIONS:[],
-    RANK:[],
-    BACKGROUND:[]
+    BACKGROUND:[],
+    SCORES: [],
 };
 
 MW.BULLET_TYPE = {
@@ -28,7 +28,7 @@ MW.BULLET_TYPE = {
 
 MW.BULLET_SPEED = {
     ENEMY: -250,
-    SHIP: 900
+    SHIP: 1050
 };
 MW.SHIPID = {
     PLAYER1: 'PLAYER1',
@@ -39,7 +39,6 @@ MW.SHIPID = {
     ENEMY3: 'ENEMY3'
 };
 MW.ENEMY = {
-
 
 }
 

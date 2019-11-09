@@ -111,7 +111,7 @@ cc.game.onStart = function(){
         /*var gameLayer = new GameLayer();
         sc.addChild(gameLayer);*/
 
-        var gameOver = new GameOver();
+        var gameOver = new MainScreen(isNewGame = true);
         sc.addChild(gameOver);
         //cc.log(windowSize.height, windowSize.width)
 

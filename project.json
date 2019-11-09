@@ -17,7 +17,7 @@
         "src/Bullet.js",
         "src/Enemy.js",
         "src/Background.js",
-        "src/GameOver.js",
+        "src/MainScreen.js",
         "src/GameManager.js"
     ]
 }

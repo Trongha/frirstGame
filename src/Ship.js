@@ -19,8 +19,6 @@ var Ship = cc.Sprite.extend({
         //this.HP = 5;
 
         this.schedule(this.shoot, 1/7);
-
-
     },
 
     update:function(dt){
@@ -57,20 +55,16 @@ var Ship = cc.Sprite.extend({
     destroy:function(){
 
         this.unschedule(this.shoot);
-        sharedGameLayer.unscheduleUpdate();
+
 
         a1 = cc.delayTime(1);
         this.opacity = 190;
         a2 = cc.moveBy(1, cc.p(0, -60));
-        /*this.setOpacityModifyRGB(true);
-        a2 = cc.FadeOut.create(10);*/
-        //this.unscheduleAll();
+
         this.runAction(cc.sequence(a2, cc.callFunc(function() {
             /*this.stopAllActions();
              this.visible = false;*/
             this.parent.removeChild(this);
-
-
             sharedGameLayer.onGameOver();
         }.bind(this))));
     },
