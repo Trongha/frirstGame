@@ -127,6 +127,8 @@ var Enemy = cc.Sprite.extend({
 
         this.stopAllActions();
         this.unschedule(this.shoot);
+
+        //this.parent.removeChild(this);
         //cc.log("score: " + MW.SCORE);
     },
 

@@ -57,7 +57,7 @@ var GameLayer = cc.Layer.extend({
         MW.CONTAINER.ENEMIES = [];
         MW.CONTAINER.PLAYER_BULLETS = [];
 
-        Background.initGameBackground(res.map_green);
+        Background.initGameBackground(res.map_green, this);
 
         this.addShip();
         this.addKeyboardListener();
@@ -119,21 +119,6 @@ var GameLayer = cc.Layer.extend({
     checkCollide:function(){
 
         var dan = null, ship = null, dan2 = null;
-
-        /*var s = "";
-        for (var j=0 ; j<MW.CONTAINER.PLAYER_BULLETS.length ; j++){
-            s+= MW.CONTAINER.PLAYER_BULLETS[j].visible + " ";
-        }
-        cc.log("bullet arr ", s);*/
-
-       /* var s = '', s1 = '';
-
-        for (var i=0 ; i < MW.CONTAINER.ENEMIES.length ; i++){
-            s += MW.CONTAINER.ENEMIES[i].visible + " ";
-            s1 += MW.CONTAINER.ENEMIES[i].enemyConfig.HP + "    ";
-        }
-        cc.log(s);
-        //cc.log(s1);*/
 
         for (var j=0 ; j<MW.CONTAINER.ENEMIES.length ; j++){
             enemy = MW.CONTAINER.ENEMIES[j];
@@ -248,7 +233,7 @@ var GameLayer = cc.Layer.extend({
         cc.director.runScene(new cc.TransitionFade(1.2, scene));
     },
     getAndSyncScores:function(){
-        var newScore = MW.SCORE;
+        /*var newScore = MW.SCORE;
         var scores = cc.sys.localStorage.getItem(MW.KEY_SAVE_SCORES);
         cc.log("run" + scores);
         if (scores != null){
@@ -265,7 +250,7 @@ var GameLayer = cc.Layer.extend({
 
         //for (var i= ; )
 
-        MW.CONTAINER.SCORES = scores.slice(0,4);
-        cc.sys.localStorage.setItem(MW.KEY_SAVE_SCORES, JSON.stringify(MW.CONTAINER.SCORES));
+        MW.CONTAINER.SCORES = scores.slice(0,4);*/
+        //cc.sys.localStorage.setItem(MW.KEY_SAVE_SCORES, JSON.stringify(MW.CONTAINER.SCORES));
     }
 })

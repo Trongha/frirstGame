@@ -27,11 +27,11 @@ var Background = cc.Sprite.extend({
         }
     },
 })
-Background.initGameBackground = function(img_path){
+Background.initGameBackground = function(img_path, layer){
     var bcg;
     for (var i=0 ; i<2 ; i++){
         bcg = new Background(windowSize.width/2,i*windowSize.height, img_path)
         MW.CONTAINER.BACKGROUND.push(bcg);
-        sharedGameLayer.addChild(bcg);
+        layer.addChild(bcg);
     }
 }

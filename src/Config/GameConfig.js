@@ -28,7 +28,7 @@ MW.BULLET_TYPE = {
 
 MW.BULLET_SPEED = {
     ENEMY: -250,
-    SHIP: 1050
+    SHIP: 1250
 };
 MW.SHIPID = {
     PLAYER1: 'PLAYER1',

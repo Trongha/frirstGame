@@ -18,7 +18,7 @@ var Ship = cc.Sprite.extend({
         this.HP = MW.SHIPCONFIG.PLAYER1.HP;
         //this.HP = 5;
 
-        this.schedule(this.shoot, 1/7);
+        this.schedule(this.shoot, 1/9);
     },
 
     update:function(dt){
