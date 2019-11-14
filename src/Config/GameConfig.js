@@ -86,7 +86,7 @@ MW.SHIPCONFIG = {
         IMG_BULLET: res.dan2_1,
         SPEED_BULLET: MW.BULLET_SPEED.ENEMY,
         ATTACK_MODE: 1,
-        SHOOT_DELAY: 1,
+        SHOOT_DELAY: 3,
         MOVE_TYPE: MW.ENEMY_MOVE_TYPE.HORIZONTAL,
         HP:5,
         SCORE:10
@@ -97,7 +97,7 @@ MW.SHIPCONFIG = {
         IMG_BULLET: res.dan2_1,
         SPEED_BULLET: MW.BULLET_SPEED.ENEMY,
         ATTACK_MODE: 1,
-        SHOOT_DELAY: 2,
+        SHOOT_DELAY: 5,
         MOVE_TYPE: MW.ENEMY_MOVE_TYPE.ZICZAC,
         HP:3,
         SCORE:5

@@ -132,7 +132,7 @@ var GameLayer = cc.Layer.extend({
                 for (var i = 0; i < MW.CONTAINER.PLAYER_BULLETS.length; i++) {
                     dan = MW.CONTAINER.PLAYER_BULLETS[i];
 
-                    if (dan.visible) {
+                    if (dan.visible && enemy.visible) {
                         if (this.collide(dan, enemy)) {
                             dan.visible = false;
                             enemy.hurt();
@@ -152,7 +152,7 @@ var GameLayer = cc.Layer.extend({
             }
             for (var i=0 ; i<MW.CONTAINER.PLAYER_BULLETS.length ; i++){
                 dan2 = MW.CONTAINER.PLAYER_BULLETS[i];
-                if (dan2.visible){
+                if (dan2.visible && dan.visible){
                     if (this.collideBuletBulet(dan, dan2)){
                         dan.visible = false;
                         dan2.visible = false;

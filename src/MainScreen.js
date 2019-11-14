@@ -11,9 +11,15 @@ var MainScreen = cc.Layer.extend({
         this.addButtonPlay(isNewGame);
 
         isNewGame ? this.loadScores() : this.syncScore();
+
+        if (!isNewGame){
+            this.showUserScore();
+        }
         this.showScores(isNewGame);
 
         this.addPlane();
+
+        this.schedule(this.movePlane, 1);
 
     },
 
@@ -28,12 +34,16 @@ var MainScreen = cc.Layer.extend({
 
         var menuItem = new cc.MenuItemLabel(label, this.onPlayAgains, this);
 
+        menuItem.attr({
+            scale:1.5
+        });
+
         var menu = new cc.Menu(menuItem);
 
         menu.attr({
             anchorX : 0.5,
             x: windowSize.width/2,
-            y: windowSize.height/4*3
+            y:2* windowSize.height/3,
         });
 
         this.addChild(menu);
@@ -61,7 +71,21 @@ var MainScreen = cc.Layer.extend({
         cc.sys.localStorage.setItem(MW.KEY_SAVE_SCORES, JSON.stringify(MW.CONTAINER.SCORES));
     },
 
+    showUserScore:function(){
+        userScore = new cc.LabelTTF("Your score: " + MW.SCORE);
+        userScore.attr({
+            anchorX:0.5,
+            x: windowSize.width/2,
+            y: windowSize.height/4*3,
+            fontSize:26,
+            scale:2.5
+        });
+        this.addChild(userScore);
+    },
+
     showScores:function(){
+
+
         title = new cc.LabelTTF("Top 10");
 
         title.attr({
@@ -86,7 +110,7 @@ var MainScreen = cc.Layer.extend({
                 anchorX:0.5,
                 fontSize: 40 - i*3,
                 x: x0,
-                y: y0 - (i+1.5)*(height - i*2),
+                y: y0 - (i+1.5)*(height - i*1.5),
 
             });
 
@@ -118,12 +142,12 @@ var MainScreen = cc.Layer.extend({
     },
 
     addPlane: function () {
-        x0 = 320;
-        x1 = 550;
-        y0 = 170;
-        y1 = 480;
+        /*x0 = 420;
+        x1 = 510;
+        y0 = 300;
+        y1 = 450;
 
-        bcg = new cc.LayerColor(new cc.Color(255, 100, 100), x1-x0, y1-y0);
+        bcg = new cc.LayerColor(new cc.Color(255, 100, 100), x1-x0, y1-y0);*/
         this.plane = new cc.Sprite(res.player2_1);
         this.plane.attr({
             anchorX:0.5,
@@ -132,27 +156,28 @@ var MainScreen = cc.Layer.extend({
             y: windowSize.height/3,
             scale:1.5
         });
-        bcg.attr({
+        /*bcg.attr({
             x:x0,
             y: y0
-        });
+        });*/
 
-        this.addChild(bcg);
+        //this.addChild(bcg);
         this.addChild(this.plane);
-    }
+    },
 
     movePlane:function(){
-        x0 = 320;
-        x1 = 550;
-        y0 = 170;
-        y1 = 480;
-
+        x0 = 400;
+        x1 = 510;
+        y0 = 320;
+        y1 = 420;
         var x = x0 + cc.random0To1()*(x1 - x0);
         var y = y0 + cc.random0To1()*(y1 - y0);
 
         var p = new cc.p(x, y);
 
-        action
+        var action = cc.moveTo(1.2, cc.p(x, y));
+
+        this.plane.runAction(action);
     },
 
 })

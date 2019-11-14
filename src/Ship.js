@@ -46,7 +46,10 @@ var Ship = cc.Sprite.extend({
     },
 
     hurt:function(){
-        this.HP--;
+        if (this.HP > 0){
+
+            this.HP--;
+        }
         sharedGameLayer.updateHP();
 
         //cc.log("   hurt " + this.HP)
